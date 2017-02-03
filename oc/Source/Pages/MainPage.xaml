@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:abstractions="clr-namespace:SVG.Forms.Plugin.Abstractions;assembly=SVG.Forms.Plugin.Abstractions"
+             x:Class="oc.Source.Pages.MainPage">
+  <ContentPage.Padding>
+    <OnPlatform
+			x:TypeArguments="Thickness"
+			iOS="0, 20, 0, 0"
+			Android="0, 0, 0, 0"
+			WinPhone="0, 0, 0, 0" />
+  </ContentPage.Padding>
+  <Grid ColumnSpacing="0" RowSpacing="0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="50"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="35"/>
+      <RowDefinition Height="20"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Orientation="Horizontal" BackgroundColor="White">
+        <StackLayout x:Name="DashboardButton" HorizontalOptions="Center" VerticalOptions="Center">
+          <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Tapped="Dashboard_OnTapped"/>
+          </StackLayout.GestureRecognizers>
+		  <StackLayout x:Name="DashboardContent" Padding="10,10,0,10">
+			<abstractions:SvgImage x:Name="DashboardSvgImage" SvgAssembly="{Binding SvgAssembly}" SvgPath="oc.Source.Images.dashboard.svg" HeightRequest="30" WidthRequest="30" BackgroundColor="White"/>
+		  </StackLayout>	        
+		</StackLayout>
+        <Label x:Name="PageTitle" HorizontalOptions="CenterAndExpand" Text="Dashboard" VerticalOptions="Center"/>
+		<StackLayout x:Name="UserButton" HorizontalOptions="Center" VerticalOptions="Center">
+			<StackLayout.GestureRecognizers>
+				<TapGestureRecognizer Tapped="Settings_OnTapped"/>
+			</StackLayout.GestureRecognizers>
+			<StackLayout x:Name="UserContent" Padding="0,10,10,10">
+				<abstractions:SvgImage x:Name="UserSvgImage" SvgAssembly="{Binding SvgAssembly}" SvgPath="oc.Source.Images.user.svg" HeightRequest="30" WidthRequest="30" BackgroundColor="White"/>
+			</StackLayout>
+		</StackLayout>
+	</StackLayout>
+    <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" x:Name="ContentStackLayout" VerticalOptions="FillAndExpand" BackgroundColor="#E6E7E8">
+    </StackLayout>
+	<!-- Opportunites button-->
+    <StackLayout x:Name="OpportunitiesContent" Grid.Row="2" Grid.Column="0" BackgroundColor="White" Padding="0,5,0,5">
+      <abstractions:SvgImage x:Name="OpportunitiesSvgImage" SvgAssembly="{Binding SvgAssembly}" SvgPath="oc.Source.Images.opportunities.svg"  HeightRequest="30" WidthRequest="30" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+    </StackLayout>
+    <StackLayout Grid.Row="3" Grid.Column="0" BackgroundColor="White">
+         <Label x:Name="OpportunitiesLabel" Text="Opportunites" TextColor="#bbbdc0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+    </StackLayout>
+    <StackLayout x:Name="OpportunitiesButton" Grid.Row="2" Grid.RowSpan="2" Grid.Column="0" BackgroundColor="Transparent">
+        <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Tapped="Opportunites_OnTapped"/>
+          </StackLayout.GestureRecognizers>
+    </StackLayout>
+  <!-- Events button-->
+    <StackLayout x:Name="EventsContent" Grid.Row="2" Grid.Column="1" BackgroundColor="White" Padding="0,5,0,5">
+      <abstractions:SvgImage x:Name="EventsSvgImage" SvgAssembly="{Binding SvgAssembly}" SvgPath="oc.Source.Images.events.svg" HeightRequest="30" WidthRequest="30" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+    </StackLayout>
+    <StackLayout Grid.Row="3" Grid.Column="1" BackgroundColor="White">
+         <Label x:Name="EventsLabel" Text="Events" TextColor="#bbbdc0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+    </StackLayout>
+    <StackLayout x:Name="EventsButton" Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" BackgroundColor="Transparent">
+        <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Tapped="Events_OnTapped"/>
+        </StackLayout.GestureRecognizers>
+    </StackLayout>
+  <!-- PHR button-->
+    <StackLayout x:Name="PhrContent" Grid.Row="2" Grid.Column="2" BackgroundColor="White" Padding="0,5,0,5">
+      <abstractions:SvgImage x:Name="PhrSvgImage" SvgAssembly="{Binding SvgAssembly}" SvgPath="oc.Source.Images.phr.svg" HeightRequest="30" WidthRequest="30" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+    </StackLayout>
+    <StackLayout Grid.Row="3" Grid.Column="2" BackgroundColor="White">
+         <Label x:Name="PhrLabel" Text="Report" TextColor="#bbbdc0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+    </StackLayout>
+    <StackLayout x:Name="PhrButton"  Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" BackgroundColor="Transparent">
+        <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Tapped="Phr_OnTapped"/>
+        </StackLayout.GestureRecognizers>
+    </StackLayout>
+  <!-- Score button-->
+    <StackLayout x:Name="ScoreContent" Grid.Row="2" Grid.Column="3" BackgroundColor="White" Padding="0,5,0,5">
+      <abstractions:SvgImage x:Name="ScoreSvgImage" SvgAssembly="{Binding SvgAssembly}" SvgPath="oc.Source.Images.score.svg" HeightRequest="30" WidthRequest="30" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+    </StackLayout>
+    <StackLayout Grid.Row="3" Grid.Column="3" BackgroundColor="White">
+         <Label x:Name="ScoreLabel" Text="Score" TextColor="#bbbdc0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+    </StackLayout>
+    <StackLayout x:Name="ScoreButton" Grid.Row="2" Grid.RowSpan="2" Grid.Column="3" BackgroundColor="Transparent">
+        <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Tapped="Score_OnTapped"/>
+        </StackLayout.GestureRecognizers>
+    </StackLayout>
+   <!-- Trackers button-->
+    <StackLayout x:Name="TrackersContent" Grid.Row="2" Grid.Column="4" BackgroundColor="White" Padding="0,5,0,5">
+      <abstractions:SvgImage x:Name="TrackersSvgImage" SvgAssembly="{Binding SvgAssembly}" SvgPath="oc.Source.Images.tracker.svg" HeightRequest="30" WidthRequest="30" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+    </StackLayout>
+    <StackLayout Grid.Row="3" Grid.Column="4" BackgroundColor="White">
+         <Label x:Name="TrackersLabel" Text="Tracker" TextColor="#bbbdc0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12"/>
+    </StackLayout>
+    <StackLayout x:Name="TrackersButton"  Grid.Row="2" Grid.RowSpan="2" Grid.Column="4" BackgroundColor="Transparent">
+        <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Tapped="Trackers_OnTapped"/>
+        </StackLayout.GestureRecognizers>
+    </StackLayout>
+  </Grid>
+</ContentPage>

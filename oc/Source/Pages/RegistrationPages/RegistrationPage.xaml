@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controlsHelper="clr-namespace:oc.Source.Helpers.UIHelpers.ControlsHelper;assembly=oc"
+	x:Class="oc.RegistrationPage">
+	<ContentPage.Padding>
+		<OnPlatform
+			x:TypeArguments="Thickness"
+			iOS="0, 0, 0, 0"
+			Android="0, 0, 0, 0"
+			WinPhone="0, 0, 0, 0" />
+
+	</ContentPage.Padding>
+
+	<ContentPage.Content>
+		<RelativeLayout>
+			<Image
+				Source="background.png"
+				Aspect="Fill"
+				IsVisible="true"
+				RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+				RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" />
+
+			<StackLayout
+				Padding="10 , 20 , 10 , 10"
+				Orientation="Vertical"
+				RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+				RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+			
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand">
+				<ScrollView
+					Orientation="Vertical"
+					VerticalOptions="StartAndExpand">
+					<StackLayout
+						Spacing="10"
+						Orientation="Vertical"
+						HorizontalOptions="FillAndExpand"
+						VerticalOptions="FillAndExpand">
+						<Image
+							HorizontalOptions="Fill"
+							Source="logo_lable.png"
+							HeightRequest="150"
+							Aspect="AspectFit"
+							VerticalOptions="Start">
+						</Image>
+
+            <controlsHelper:TextContainerFrame>
+              <StackLayout
+				Orientation="Vertical"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+				<Label 
+                  TextColor="Black"
+                  Text="The Invitation Code allows you to continue through a quick registration process to create your personalized and confidential health portal. If you do not know your Invitation Code, please contact your program's organizer or refer to communications you received directing you to OneCommunity."
+                  HorizontalOptions="Start">
+                  <Label.FontSize>
+                    <OnPlatform x:TypeArguments="x:Double" Android="16" iOS="16"/>
+                  </Label.FontSize>
+                </Label>
+              </StackLayout>
+            </controlsHelper:TextContainerFrame>
+
+             <controlsHelper:CustomFontEntry  
+              TextColorExtended="Black"
+              PlaceHolderColorExtended="Black"
+              BorderWidthExtended="1"
+              CornerRadiusExtended="6"
+              BorderColorExtended="Black"
+              BackgroundColorExtended="White"
+              x:Name="InvitationCodeEntry" 
+              Text="" 
+              Placeholder="Invitation Code"  />
+
+            <controlsHelper:CustomFontButton 
+              BackgroundColorExtended="#7AB648" 
+              BorderColorExtended="Black" 
+              BorderWidthExtended="1" 
+              CornerRadiusExtended="5"
+              VerticalOptions="Center"
+              HorizontalOptions="End"
+              x:Name="ContinueToFirstStepButton"
+              Text="Continue"
+              FontSize="16"
+              FontAttributes="Bold"
+              TextColor="White">
+              <Button.HeightRequest>
+                <OnPlatform x:TypeArguments="x:Double"  iOS="40" Android="40"/>
+              </Button.HeightRequest>
+
+              <Button.WidthRequest>
+                <OnPlatform x:TypeArguments="x:Double"  iOS="120" Android="120"/>
+              </Button.WidthRequest>
+          
+            </controlsHelper:CustomFontButton>
+
+					</StackLayout>
+
+				</ScrollView>
+
+			</StackLayout>
+
+		</RelativeLayout>
+
+	</ContentPage.Content>
+
+</ContentPage>

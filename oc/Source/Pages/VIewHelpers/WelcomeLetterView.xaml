@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controlsHelper="clr-namespace:oc.Source.Helpers.UIHelpers.ControlsHelper;assembly=oc"
+             x:Class="oc.Source.Pages.ViewHelpers.WelcomeLetterView">
+	<ContentView.Content>
+		<StackLayout Orientation="Vertical" Padding="20,20,20,20"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#eeeeee">
+    <StackLayout x:Name="StackWebView" Orientation="Vertical" Padding="1,1,1,1" BackgroundColor="#dddddd"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0">
+      <StackLayout Orientation="Vertical" Padding="20,20,20,20"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+        <controlsHelper:CustomFontWebView x:Name="WelcomLetterWebView" HeightRequest="500" FontSizeExtended="small" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  />
+      </StackLayout>
+    </StackLayout>
+  </StackLayout>
+	</ContentView.Content>
+</ContentView>

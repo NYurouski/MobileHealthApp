@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controlsHelper="clr-namespace:oc.Source.Helpers.UIHelpers.ControlsHelper;assembly=oc"
+	x:Class="oc.Source.Pages.LoginInPage">
+  <ContentPage.Padding>
+    <OnPlatform
+			x:TypeArguments="Thickness"
+			iOS="0, 20, 0, 0"
+			Android="0, 0, 0, 0"
+			WinPhone="0, 0, 0, 0" />
+  </ContentPage.Padding>
+  <ContentPage.Content>
+    <RelativeLayout x:Name="RootLayout">
+      <Image
+				Source="login.png"
+				Aspect="Fill"
+				IsVisible="true"
+				RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+				RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" />
+      <StackLayout BackgroundColor="Transparent" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+				RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
+        <StackLayout Padding="0,230,0,0">
+          <StackLayout Padding="20,110,20,0">
+            <controlsHelper:CustomFontEntry
+           BackgroundColorExtended="White"
+           BorderColorExtended="#cccccc"
+           BorderWidthExtended="1"
+           x:Name="EmailAddressEntry"
+           Placeholder="Email address"
+           HeightRequest="42"
+           PlaceHolderColorExtended="#E3E2E5"/>
+            <controlsHelper:CustomFontEntry
+              BackgroundColorExtended="White"
+              BorderColorExtended="#cccccc"
+              Placeholder="Password"
+              x:Name="PasswordEntry"
+              HeightRequest="42"
+              IsPassword="True"
+              PlaceHolderColorExtended="#E3E2E5"
+              BorderWidthExtended="1"/>
+            <controlsHelper:CustomFontButton
+              Margin="0,15,0,0"
+              HeightRequest="46"
+              BorderWidth="1"
+              FontSize="16"
+              Clicked="LoginButton_OnClicked"
+              Text="Log In"
+              BackgroundColor="#37A600"
+			  BorderColorExtended="#3EC951"
+              CornerRadiusExtended="7"/>
+            <StackLayout Padding="10,0,0,10" HorizontalOptions="End">
+              <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnForgotPasswordTapGestureRecognizerTapped" />
+              </StackLayout.GestureRecognizers>
+              <Label
+                    TextColor="White"
+					FontSize="14"
+                    Text="Forgot password?">
+              </Label>
+            </StackLayout>
+          </StackLayout>
+        </StackLayout>
+      </StackLayout>
+    </RelativeLayout>
+  </ContentPage.Content>
+</ContentPage>
+

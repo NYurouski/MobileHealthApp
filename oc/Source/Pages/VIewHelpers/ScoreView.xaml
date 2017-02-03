@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controlsHelper="clr-namespace:oc.Source.Helpers.UIHelpers.ControlsHelper;assembly=oc"
+             x:Class="oc.Source.Pages.ViewHelpers.ScoreView">
+  <ContentView.Resources>
+   <ResourceDictionary>
+      <Style x:Key="LabelStyle" TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+        <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+        <Setter Property="FontSize" Value="10" />
+      </Style>
+      <Style x:Key="LabelStaticText" TargetType="Label"  BasedOn="{StaticResource LabelStyle}">
+        <Setter Property="FontSize" Value="16"></Setter>
+      </Style>
+      <Style x:Key="LabelStaticTextSmaller" TargetType="Label"  BasedOn="{StaticResource LabelStaticText}">
+        <Setter Property="FontSize" Value="12"></Setter>
+      </Style>
+      <Style x:Key="LabelFontStyle" TargetType="Label" BasedOn="{StaticResource LabelStyle}">
+        <Setter Property="TextColor" Value="#ffffff"/>
+      </Style>
+      <Style x:Key="LabelWhiteFontStyle" TargetType="Label" BasedOn="{StaticResource LabelFontStyle}">
+        <Setter Property="TextColor" Value="White"/>
+      </Style>
+      <Style x:Key="HealthCategoryLabelStyle" TargetType="Label" BasedOn="{StaticResource LabelStyle}">
+        <Setter Property="TextColor" Value="#333333"/>
+      </Style>
+      <Style x:Key="HealthCategoryWhiteLabelStyle" TargetType="Label" BasedOn="{StaticResource HealthCategoryLabelStyle}">
+        <Setter Property="TextColor" Value="White"/>
+      </Style>
+      <Style x:Key="StackLayoutStyle" TargetType="StackLayout">
+        <Setter Property="Orientation" Value="Vertical"/>
+        <Setter Property="Spacing" Value="0"/>
+      </Style>
+      <Style x:Key="BoxViewStyle" TargetType="BoxView">
+        <Setter Property="WidthRequest" Value="110"/>
+        <Setter Property="HeightRequest" Value="25"/>
+      </Style>
+      <Style x:Key="BoxViewStyleRectangles" TargetType="BoxView">
+        <Setter Property="WidthRequest" Value="45"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="End"/>
+      </Style>
+      <Style x:Key="StackLayoutWhiteViewStyle" TargetType="StackLayout">
+        <Setter Property="BackgroundColor" Value="White"/>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+      </Style>
+    </ResourceDictionary>
+  </ContentView.Resources>
+  <ContentView.Content>
+     <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+    <StackLayout Orientation="Vertical" x:Name="MainLayout" VerticalOptions="Start" HorizontalOptions="FillAndExpand" IsVisible="False">
+		 <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#C8C7CC" Padding="0,10,0,10">
+		  <ContentView HorizontalOptions="Center">
+		      <Label FontSize="16" Text="Health Score Overview" TextColor="#506E97"/>
+		  </ContentView>
+		</StackLayout>
+        <!--MyHealthScore start region-->
+        <StackLayout Orientation="Vertical" Padding="20,20,20,0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="MyHealthScoreLayout" IsVisible="True" Spacing="0">
+          <controlsHelper:TextContainerFrame BackgroundColorExtended="#eeeeee" BorderColorExtended="#dddddd" BorderWidthExtended="1" CornerRadiusExtended="0" HasShadow="False">
+            <StackLayout Orientation="Horizontal" Padding="0,0,0,0">
+                  <Label x:Name="MyHealthScoreHeaderLabel1" Style="{StaticResource LabelStaticText}" TextColor="#0055a5"  Text="Your Health Score" HorizontalOptions="Start"/>
+            </StackLayout>
+          </controlsHelper:TextContainerFrame>
+          <controlsHelper:TextContainerFrame BackgroundColorExtended="White" BorderColorExtended="#dddddd" BorderWidthExtended="1" CornerRadiusExtended="0" HasShadow="False">
+            <StackLayout Orientation="Vertical" Padding="0,10,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+              <StackLayout Orientation="Vertical" Spacing="0">
+                <!-- Content -->
+                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="20">
+                  <StackLayout Orientation="Vertical" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" Spacing="0">
+                    <Label x:Name="ScoreTitleLabel" TextColor="White" HeightRequest="40" WidthRequest="130" Text="Your Score:" BackgroundColor="{Binding ParticipantScore.RiskColor, StringFormat='#{0:N}'}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    <BoxView Color="White" HeightRequest="2" WidthRequest="130"></BoxView>
+                    <Label x:Name="ScoreNumberLabel" TextColor="White" Text="{Binding ParticipantScore.OveralScore}" BackgroundColor="{Binding ParticipantScore.RiskColor, StringFormat='#{0:N}'}"  FontSize="60" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    <StackLayout Orientation="Horizontal" Padding="0,5,0,5" BackgroundColor="Gray" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                      <Label x:Name="ScoreRiskLabel" TextColor="White" Text="{Binding ParticipantScore.RiskLevel, StringFormat='{0:N} Risk'}"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                    </StackLayout>
+                  </StackLayout>
+                  <Grid x:Name="HealthScoreStatusGrid" RowSpacing="3" ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="110"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                      <RowDefinition Height="27"></RowDefinition>
+                      <RowDefinition Height="27"></RowDefinition>
+                      <RowDefinition Height="27"></RowDefinition>
+                      <RowDefinition Height="27"></RowDefinition>
+                      <RowDefinition Height="27"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <BoxView Style="{StaticResource BoxViewStyle}" BackgroundColor="#63934E" Grid.Row="0" Grid.Column="0" ></BoxView>
+                    <BoxView Style="{StaticResource BoxViewStyle}" BackgroundColor="#B1B149" Grid.Row="1" Grid.Column="0"></BoxView>
+                    <BoxView Style="{StaticResource BoxViewStyle}" BackgroundColor="#E1BE18" Grid.Row="2" Grid.Column="0"></BoxView>
+                    <BoxView Style="{StaticResource BoxViewStyle}" BackgroundColor="#EA862C" Grid.Row="3" Grid.Column="0"></BoxView>
+                    <BoxView Style="{StaticResource BoxViewStyle}" BackgroundColor="#AA0000" Grid.Row="4" Grid.Column="0"></BoxView>
+                    <Label  Grid.Row="0" Grid.Column="0" FontSize="13" Text="Minimal" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label  Grid.Row="1" Grid.Column="0" FontSize="13" Text="Moderate" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label  Grid.Row="2" Grid.Column="0" Text="Medium" FontSize="13" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label  Grid.Row="3" Grid.Column="0" Text="High" FontSize="13" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label  Grid.Row="4" Grid.Column="0" Text="Extreme" FontSize="13" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                   </Grid>
+                </StackLayout>
+               </StackLayout>
+            </StackLayout>
+          </controlsHelper:TextContainerFrame>
+        </StackLayout>
+      <!-- Risk Message -->
+       <StackLayout Orientation="Vertical" Padding="20,20,20,0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+          <controlsHelper:TextContainerFrame BackgroundColorExtended="White" BorderColorExtended="#dddddd" BorderWidthExtended="1" CornerRadiusExtended="0" HasShadow="False">
+            <StackLayout Orientation="Vertical" Padding="0,10,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+              <Label x:Name="ScoredRangeLabel" Style="{StaticResource LabelStaticText}" TextColor="{Binding ParticipantScore.RiskColor}" HorizontalOptions="Start"/>
+              <Label Text="{Binding ParticipantScore.RiskMessage}" Style="{StaticResource LabelStaticTextSmaller}" HorizontalOptions="Start" TextColor="#333333"/>
+            </StackLayout>
+          </controlsHelper:TextContainerFrame>
+       </StackLayout>
+        <!-- MyHealthCompare start region -->
+        <StackLayout x:Name="CompareHealth" Padding="20,20,20,0" HorizontalOptions="Fill" VerticalOptions="Start">
+        <Grid RowSpacing="1" ColumnSpacing="1">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition>Auto</ColumnDefinition>
+            <ColumnDefinition>Auto</ColumnDefinition>
+            <ColumnDefinition>Auto</ColumnDefinition>
+          </Grid.ColumnDefinitions>
+          <!-- Grid Header -->
+          <StackLayout Orientation="Horizontal" BackgroundColor="#eeeeee" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+          </StackLayout>
+          <StackLayout Orientation="Horizontal" BackgroundColor="#E9667F" Grid.Row="0" Grid.Column="1">
+           <Label Text="You" Style="{StaticResource LabelWhiteFontStyle}"/>
+          </StackLayout>
+          <StackLayout Orientation="Horizontal" BackgroundColor="White" Grid.Row="0" Grid.Column="2">
+            <Label Text="This Program" Style="{StaticResource LabelFontStyle}" TextColor="#333333"/>
+          </StackLayout>
+          <!-- First Row -->
+          <StackLayout Grid.Row="1" Grid.Column="0" Style="{StaticResource StackLayoutStyle}" BackgroundColor="#63934E">
+            <Label Text="Minimal" Style="{StaticResource LabelFontStyle}"/>
+            <Label Text="(86-100)" Style="{StaticResource LabelFontStyle}"/>
+          </StackLayout>
+          <StackLayout Grid.Row="1" Grid.Column="1" Style="{StaticResource StackLayoutWhiteViewStyle}"></StackLayout>
+          <StackLayout Grid.Row="1" Grid.Column="2" Style="{StaticResource StackLayoutWhiteViewStyle}"></StackLayout>
+          <!-- Second Row -->
+          <StackLayout Grid.Row="2" Grid.Column="0" Style="{StaticResource StackLayoutStyle}" BackgroundColor="#B1B149">
+            <Label Text="Moderate"  Style="{StaticResource LabelFontStyle}"/>
+            <Label Text="(71-85)" Style="{StaticResource LabelFontStyle}"/>
+          </StackLayout>
+          <StackLayout Grid.Row="2" Grid.Column="1" Style="{StaticResource StackLayoutWhiteViewStyle}"></StackLayout>
+          <StackLayout Grid.Row="2" Grid.Column="2" Style="{StaticResource StackLayoutWhiteViewStyle}"></StackLayout>
+          <!-- Third Row -->
+          <StackLayout Grid.Row="3" Grid.Column="0" Style="{StaticResource StackLayoutStyle}" BackgroundColor="#E1BE18">
+            <Label Text="Medium"  Style="{StaticResource LabelFontStyle}"/>
+            <Label Text="(61-70)" Style="{StaticResource LabelFontStyle}"/>
+          </StackLayout>
+          <StackLayout Grid.Row="3" Grid.Column="1" Style="{StaticResource StackLayoutWhiteViewStyle}"></StackLayout>
+          <StackLayout Grid.Row="3" Grid.Column="2" Style="{StaticResource StackLayoutWhiteViewStyle}"></StackLayout>
+          <!-- Fourth Row -->
+          <StackLayout Grid.Row="4" Grid.Column="0" Style="{StaticResource StackLayoutStyle}" BackgroundColor="#EA862C">
+            <Label Text="High" Style="{StaticResource LabelFontStyle}"/>
+            <Label Text="(51-60)" Style="{StaticResource LabelFontStyle}"/>
+          </StackLayout>
+          <StackLayout Grid.Row="4" Grid.Column="1" Style="{StaticResource StackLayoutWhiteViewStyle}"></StackLayout>
+          <StackLayout Grid.Row="4" Grid.Column="2" Style="{StaticResource StackLayoutWhiteViewStyle}"></StackLayout>
+          <!-- Fifth Row -->
+          <StackLayout Grid.Row="5" Grid.Column="0" Style="{StaticResource StackLayoutStyle}" BackgroundColor="#AA0000">
+            <Label Text="Extreme" Style="{StaticResource LabelFontStyle}"/>
+            <Label Text="(50 or less)" Style="{StaticResource LabelFontStyle}"/>
+          </StackLayout>
+          <StackLayout Grid.Row="5" Grid.Column="1" Style="{StaticResource StackLayoutWhiteViewStyle}"></StackLayout>
+          <StackLayout Grid.Row="5" Grid.Column="2" Style="{StaticResource StackLayoutWhiteViewStyle}"></StackLayout>
+          <!-- Rectangles -->
+          <BoxView x:Name="YourRectangle" BackgroundColor="{Binding ParticipantScore.RiskColor, StringFormat='#{0:N}'}" Grid.Row="1" Grid.Column="1" Grid.RowSpan="5" Style="{StaticResource BoxViewStyleRectangles}"/>
+          <BoxView x:Name="ProgramRectangle" Grid.Row="1" Grid.Column="2" Grid.RowSpan="5" Style="{StaticResource BoxViewStyleRectangles}"/>
+        </Grid>
+      </StackLayout>
+        <!-- MyHealthCompare Static Text -->
+         <StackLayout x:Name="CompareHealthStaticText"  Orientation="Vertical" Padding="20,20,20,0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+          <controlsHelper:TextContainerFrame BackgroundColorExtended="White" BorderColorExtended="#dddddd" BorderWidthExtended="1" CornerRadiusExtended="0" HasShadow="False">
+            <StackLayout Orientation="Vertical" Padding="0,10,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+              <Label Text="How do you compare?" Style="{StaticResource LabelStaticText}" TextColor="#0055a5" HorizontalOptions="Start"/>
+              <Label Text="This program: This is the average score of all participants in your organization's One Community program." Style="{StaticResource LabelStaticTextSmaller}" HorizontalOptions="Start" TextColor="#333333"/>  
+            </StackLayout>
+          </controlsHelper:TextContainerFrame>
+       </StackLayout>
+        <!--MyHealthCategory start region-->
+      <StackLayout Padding="20,20,20,0">
+        <StackLayout x:Name="StackLayoutHealthCategory" Padding="1,1,1,1" HorizontalOptions="Fill" VerticalOptions="Start" BackgroundColor="#AAAAAA">
+          <Grid RowSpacing="1" ColumnSpacing="1">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="25"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="25"/>
+              <RowDefinition Height="25"/>
+              <RowDefinition Height="25"/>
+              <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition>Auto</ColumnDefinition>
+              <ColumnDefinition>Auto</ColumnDefinition>
+              <ColumnDefinition>Auto</ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!-- Grid Header -->
+            <StackLayout Orientation="Horizontal" BackgroundColor="#eeeeee" Grid.Row="0" Grid.Column="0">
+              <Label Text="Health Category" Style="{StaticResource HealthCategoryLabelStyle}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" BackgroundColor="#E9667F" Grid.Row="0" Grid.Column="1">
+              <Label Text="Your Score" Style="{StaticResource HealthCategoryWhiteLabelStyle}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" BackgroundColor="#666666" Grid.Row="0" Grid.Column="2">
+              <Label Text="Maximum Score" Style="{StaticResource HealthCategoryWhiteLabelStyle}"/>
+            </StackLayout>
+            <!-- First Row -->
+            <StackLayout Grid.Row="1" Grid.Column="0" Style="{StaticResource StackLayoutWhiteViewStyle}" Padding="5,5,5,5">
+              <Label Text="Health Behavior" Style="{StaticResource HealthCategoryLabelStyle}"/>
+            </StackLayout>
+            <StackLayout  Grid.Row="1" Grid.Column="1"  Style="{StaticResource StackLayoutWhiteViewStyle}" Padding="5,5,5,5">
+              <Label Text="{Binding ParticipantScore.HealthyBehaviorScore}" Style="{StaticResource HealthCategoryLabelStyle}"/>
+            </StackLayout>
+            <StackLayout Style="{StaticResource StackLayoutWhiteViewStyle}" Padding="5,5,5,5"  Grid.Row="1" Grid.Column="2">
+              <Label Text="{Binding ParticipantScore.HealthyBehaviorMaxScore}" Style="{StaticResource HealthCategoryLabelStyle}"/>
+            </StackLayout>
+            <!-- Second Row -->
+            <StackLayout Grid.Row="2" Grid.Column="0" Style="{StaticResource StackLayoutWhiteViewStyle}" Padding="5,5,5,5">
+                <Label Text="Body Composition" Style="{StaticResource HealthCategoryLabelStyle}"/>
+            </StackLayout>
+            <StackLayout  Grid.Row="2" Grid.Column="1"  Style="{StaticResource StackLayoutWhiteViewStyle}" Padding="5,5,5,5">
+                <Label Text="{Binding ParticipantScore.BodyCompScore}" Style="{StaticResource HealthCategoryLabelStyle}"/>
+            </StackLayout>
+            <StackLayout Grid.Row="2" Grid.Column="2" Style="{StaticResource StackLayoutWhiteViewStyle}" Padding="5,5,5,5"  >
+              <Label Text="{Binding ParticipantScore.BodyCompMaxScore}" Style="{StaticResource HealthCategoryLabelStyle}"/>
+            </StackLayout>
+            <!-- Third Row -->
+            <StackLayout Grid.Row="3" Grid.Column="0" Style="{StaticResource StackLayoutWhiteViewStyle}" Padding="5,5,5,5">
+              <Label Text="Health Status" Style="{StaticResource HealthCategoryLabelStyle}"/>
+            </StackLayout>
+            <StackLayout  Grid.Row="3" Grid.Column="1"  Style="{StaticResource StackLayoutWhiteViewStyle}" Padding="5,5,5,5">
+              <Label Text="{Binding ParticipantScore.HealthStatusScore}" Style="{StaticResource HealthCategoryLabelStyle}"/>
+            </StackLayout>
+            <StackLayout Grid.Row="3" Grid.Column="2" Style="{StaticResource StackLayoutWhiteViewStyle}" Padding="5,5,5,5"  >
+              <Label Text="{Binding ParticipantScore.HealthStatusMaxScore}" Style="{StaticResource HealthCategoryLabelStyle}"/>
+            </StackLayout>
+            <!-- Fourth Row -->
+            <StackLayout Grid.Row="4" Grid.Column="0" Style="{StaticResource StackLayoutWhiteViewStyle}" Padding="5,5,5,5">
+              <Label Text="Screening Results" Style="{StaticResource HealthCategoryLabelStyle}"/>
+            </StackLayout>
+            <StackLayout  Grid.Row="4" Grid.Column="1"  Style="{StaticResource StackLayoutWhiteViewStyle}" Padding="5,5,5,5">
+              <Label Text="{Binding ParticipantScore.ScreeningResultsScore}" Style="{StaticResource HealthCategoryLabelStyle}"/>
+            </StackLayout>
+            <StackLayout Grid.Row="4" Grid.Column="2" Style="{StaticResource StackLayoutWhiteViewStyle}" Padding="5,5,5,5"  >
+              <Label Text="{Binding ParticipantScore.ScreeningResultsMaxScore}" Style="{StaticResource HealthCategoryLabelStyle}"/>
+            </StackLayout>
+            <!-- Fifth Row -->
+            <StackLayout Grid.Row="5" Grid.Column="0" Style="{StaticResource StackLayoutWhiteViewStyle}" Padding="5,5,5,5">
+              <Label Text="Preventive Services" Style="{StaticResource HealthCategoryLabelStyle}"/>
+            </StackLayout>
+            <StackLayout  Grid.Row="5" Grid.Column="1"  Style="{StaticResource StackLayoutWhiteViewStyle}" Padding="5,5,5,5">
+              <Label Text="{Binding ParticipantScore.PreventativeScore}" Style="{StaticResource HealthCategoryLabelStyle}"/>
+            </StackLayout>
+            <StackLayout Grid.Row="5" Grid.Column="2" Style="{StaticResource StackLayoutWhiteViewStyle}" Padding="5,5,5,5"  >
+              <Label Text="{Binding ParticipantScore.PreventativeMaxScore}" Style="{StaticResource HealthCategoryLabelStyle}"/>
+            </StackLayout>
+          </Grid>
+        </StackLayout>
+      </StackLayout>
+     <!-- Your Score Detail -->
+       <StackLayout Orientation="Vertical" Padding="20,20,20,0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="True">
+          <controlsHelper:TextContainerFrame BackgroundColorExtended="White" BorderColorExtended="#dddddd" BorderWidthExtended="1" CornerRadiusExtended="0" HasShadow="False">
+            <StackLayout Orientation="Vertical" Padding="0,10,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+              <Label Text="Your score details" Style="{StaticResource LabelStaticText}" TextColor="#0055a5" HorizontalOptions="Start"/>
+              <Label Text="The Health Score is designed to give a reasonable estimate of potential health risks. Your result is based on a custom scoring methodology provided by your organization's program administrator. For more information about the components that make up your program's Health Score, please contact the program administrator within your organization." 
+                                              Style="{StaticResource LabelStaticTextSmaller}" HorizontalOptions="Start" TextColor="#333333"/>
+            </StackLayout>
+          </controlsHelper:TextContainerFrame>
+       </StackLayout>
+      <StackLayout Padding="20,20,20,0">
+        <StackLayout x:Name="HistotyLogLayout" BackgroundColor="#aaaaaa" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="1,1,1,1">
+        </StackLayout>
+      </StackLayout>
+    <!-- History Log Comment -->
+       <StackLayout Orientation="Vertical" Padding="20,20,20,20"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="True">
+          <controlsHelper:TextContainerFrame BackgroundColorExtended="White" BorderColorExtended="#dddddd" BorderWidthExtended="1" CornerRadiusExtended="0" HasShadow="False">
+            <StackLayout Orientation="Vertical" Padding="0,10,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+              <Label Text="* An asterisk indicates that the result is based on a custom scoring methodology provided by your organization's program administrator. The result may not be based on the same factors as other scores in your OneCommunity history" 
+                                              Style="{StaticResource LabelStaticTextSmaller}" HorizontalOptions="Start" TextColor="#333333"/>
+            </StackLayout>
+          </controlsHelper:TextContainerFrame>
+       </StackLayout>
+    </StackLayout>
+   </ScrollView>
+  </ContentView.Content>
+</ContentView>

@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controlsHelper="clr-namespace:oc.Source.Helpers.UIHelpers.ControlsHelper;assembly=oc"
+             x:Class="oc.Source.Pages.ViewHelpers.HomeView">
+	<ContentView.Resources>
+		<ResourceDictionary>
+			<Style x:Key="BoxViewStyle" TargetType="BoxView">
+				<Setter Property="WidthRequest" Value="30"/>
+				<Setter Property="HeightRequest" Value="30"/>
+			</Style>
+		</ResourceDictionary>
+	</ContentView.Resources>
+	<ContentView.Content>
+		<ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+			<StackLayout Padding="10,0,0,20" Orientation="Vertical" x:Name="MainLayout" VerticalOptions="Fill" HorizontalOptions="FillAndExpand" Opacity="0">
+				<StackLayout VerticalOptions="Fill"  HorizontalOptions="Fill" Spacing="20">
+					<StackLayout x:Name="StatusStackLayout" IsVisible="True" Orientation="Vertical" Padding="5,0,15,0"  HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
+						<StackLayout  Orientation="Vertical" BackgroundColor="Gray" Padding="10, 0, 10, 35" Spacing="10">
+							<StackLayout Orientation="Vertical" Spacing="0" Padding="0,10,0,15">
+								<Label x:Name="MyStatusLabel" Text="MY STATUS" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center">
+								</Label>
+							</StackLayout>
+							<StackLayout Orientation="Horizontal">
+								<Image x:Name="SurveyImageEnabled" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30" Source="greencirclecheck.png"></Image>
+								<Image x:Name="SurveyImage" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30" Source="greencirclex.png"></Image>
+								<Label x:Name="SurveyLabel" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="White" >
+									<Label.FontSize>
+										<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+									</Label.FontSize>
+								</Label>
+							</StackLayout>
+							<BoxView BackgroundColor="White" HeightRequest="1"/>
+							<StackLayout Orientation="Horizontal" >
+								<Image x:Name="BiometricAssessmentImageChecked" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30" Source="greencirclecheck.png"></Image>
+								<Image x:Name="BiometricAssessmentImage" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30" Source="greencirclex.png"></Image>
+								<Label x:Name="BiometricAssessmentLabel" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="White" >
+									<Label.FontSize>
+										<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+									</Label.FontSize>
+								</Label>
+							</StackLayout>
+							<StackLayout Orientation="Vertical" Padding="10,35,10,0">
+								<controlsHelper:CustomFontButton
+									 BorderColorExtended="Black"
+									 BorderWidthExtended="0"
+									 CornerRadiusExtended="0"
+									 Text="Complete My Health Survey"
+									 TextColorExtended="#333333"
+									 HorizontalContentAlignment="Start"
+									 BackgroundColorExtended="#cccccc"
+									 HorizontalOptions="FillAndExpand"
+									 VerticalOptions="Fill"  FontSize="16" Clicked="MyHealthSurvey_OnClicked">
+									<Button.HeightRequest>
+										<OnPlatform x:TypeArguments="x:Double"  iOS="40" Android="40"/>
+									</Button.HeightRequest>
+									<Button.WidthRequest>
+										<OnPlatform x:TypeArguments="x:Double"  iOS="150" Android="150"/>
+									</Button.WidthRequest>
+								</controlsHelper:CustomFontButton>
+							</StackLayout>
+						</StackLayout>
+					</StackLayout>
+					<!--MyHealthRisks start region-->
+					<StackLayout Orientation="Vertical" Padding="5,0,15,0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="MyHealthRisksLayout" IsVisible="True">
+						<controlsHelper:TextContainerFrame BackgroundColorExtended="White" BorderColorExtended="#dddddd" BorderWidthExtended="1" CornerRadiusExtended="0" HasShadow="False">
+							<StackLayout Orientation="Vertical" Padding="0,10,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+								<StackLayout Orientation="Vertical" Spacing="0" Padding="0,0,0,15">
+									<!-- Content -->
+									<StackLayout Orientation="Horizontal" Padding="0,0,0,20">
+										<Label x:Name="MyHealthRiskLabel" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#666666"  Text="MY HEALTH RISK SUMMARY" />
+									</StackLayout>
+									<StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="FillAndExpand">
+										<Image Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" Source="GlyphCircleCheck.png" IsVisible="False" x:Name="BPSignCheckedImage" />
+										<Image Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" Source="GlyphCircleExclamation.png" IsVisible="False" x:Name="BPSignUncheckedImage" />
+										<Image Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" Source="GlyphCircleRed.png" IsVisible="False" x:Name="BPSignRedImage" />
+
+										<Label x:Name="MyHealthRisksBPTextTextLabel" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#333333" >
+											<Label.FontSize>
+												<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+											</Label.FontSize>
+										</Label>
+									</StackLayout>
+
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+										<Image Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" Source="GlyphCircleCheck.png" IsVisible="False" x:Name="HDLSignCheckedImage" />
+										<Image Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" Source="GlyphCircleExclamation.png" IsVisible="False" x:Name="HDLSignUncheckedImage" />
+										<Image Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" Source="GlyphCircleRed.png" IsVisible="False" x:Name="HDLSignRedImage" />
+
+										<Label x:Name="MyHealthRisksHDLTextTextLabel" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#333333">
+											<Label.FontSize>
+												<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+											</Label.FontSize>
+										</Label>
+									</StackLayout>
+
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+										<Image Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" Source="GlyphCircleCheck.png" IsVisible="False" x:Name="TriglSignCheckedImage" />
+										<Image Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" Source="GlyphCircleExclamation.png" IsVisible="False" x:Name="TriglSignUncheckedImage" />
+										<Image Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" Source="GlyphCircleRed.png" IsVisible="False" x:Name="TriglSignRedImage" />
+
+										<Label x:Name="MyHealthRisksTriglTextTextLabel" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#333333" >
+											<Label.FontSize>
+												<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+											</Label.FontSize>
+										</Label>
+									</StackLayout>
+
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+										<Image Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" Source="GlyphCircleCheck.png" IsVisible="False" x:Name="GlucoseSignCheckedImage" />
+										<Image Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" Source="GlyphCircleExclamation.png" IsVisible="False" x:Name="GlucoseSignUncheckedImage" />
+										<Image Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" Source="GlyphCircleRed.png" IsVisible="False" x:Name="GlucoseSignRedImage" />
+
+										<Label x:Name="MyHealthRisksGlucoseTextTextLabel" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#333333" >
+											<Label.FontSize>
+												<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+											</Label.FontSize>
+										</Label>
+									</StackLayout>
+
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+										<Image Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" Source="GlyphCircleCheck.png" IsVisible="False" x:Name="BodySignCheckedImage" />
+										<Image Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" Source="GlyphCircleExclamation.png" IsVisible="False" x:Name="BodySignUncheckedImage" />
+										<Image Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" Source="GlyphCircleRed.png" IsVisible="False" x:Name="BodySignRedImage" />
+
+										<Label x:Name="MyHealthRisksBodyTextTextLabel" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#333333"  >
+											<Label.FontSize>
+												<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+											</Label.FontSize>
+										</Label>
+									</StackLayout>
+
+									<StackLayout Orientation="Horizontal" Padding="0,20,0,0">
+										<controlsHelper:CustomFontButton
+											  BorderColorExtended="Black"
+											  BorderWidthExtended="0"
+											  CornerRadiusExtended="0"
+											  TextColorExtended="#444444"
+											  HorizontalContentAlignment="Start"
+											  BackgroundColorExtended="#cccccc"
+											  HorizontalOptions="FillAndExpand"
+											  VerticalOptions="Fill"  FontSize="16"
+											  Text="View Health Report"
+											  Clicked="MyHealthRiskSummary_OnClicked">
+											<Button.HeightRequest>
+												<OnPlatform x:TypeArguments="x:Double"  iOS="40" Android="40"/>
+											</Button.HeightRequest>
+
+											<Button.WidthRequest>
+												<OnPlatform x:TypeArguments="x:Double"  iOS="210" Android="210"/>
+											</Button.WidthRequest>
+										</controlsHelper:CustomFontButton>
+									</StackLayout>
+								</StackLayout>
+							</StackLayout>
+						</controlsHelper:TextContainerFrame>
+					</StackLayout>
+					<!--MyHealthRisks end region-->
+
+					<!--MyHealthScore start region-->
+					<StackLayout Orientation="Vertical" Padding="5,0,15,0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="MyHealthScoreLayout" IsVisible="True">
+						<controlsHelper:TextContainerFrame BackgroundColorExtended="White" BorderColorExtended="#dddddd" BorderWidthExtended="1" CornerRadiusExtended="0" HasShadow="False">
+							<StackLayout Orientation="Vertical" Padding="0,10,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+								<StackLayout Orientation="Vertical" Spacing="0" Padding="0,0,0,15">
+									<!-- Content -->
+									<StackLayout Orientation="Horizontal" Padding="0,0,0,20">
+										<Label x:Name="MyHealthScoreHeaderLabel1" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#666666"  Text="MY HEALTH SCORE"/>
+
+									</StackLayout>
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="40">
+										<StackLayout Orientation="Vertical" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" Spacing="0">
+											<Label x:Name="ScoreTitleLabel" TextColor="White" HeightRequest="50" WidthRequest="150" Text="Your Score:" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+											<BoxView Color="White" HeightRequest="2" WidthRequest="150"></BoxView>
+											<Label x:Name="ScoreNumberLabel" TextColor="White" Text="60" FontSize="60" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+											<StackLayout Orientation="Horizontal" Padding="0,5,0,5" BackgroundColor="Gray" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+												<Label x:Name="ScoreRiskLabel"  TextColor="White" Text="High Risk" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+											</StackLayout>
+										</StackLayout>
+										<Grid x:Name="HealthScoreStatusGrid" RowSpacing="3" ColumnSpacing="0">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="24"></ColumnDefinition>
+												<ColumnDefinition Width="6"></ColumnDefinition>
+												<ColumnDefinition Width="Auto"></ColumnDefinition>
+											</Grid.ColumnDefinitions>
+											<Grid.RowDefinitions>
+												<RowDefinition Height="Auto"></RowDefinition>
+												<RowDefinition Height="Auto"></RowDefinition>
+												<RowDefinition Height="Auto"></RowDefinition>
+												<RowDefinition Height="Auto"></RowDefinition>
+												<RowDefinition Height="Auto"></RowDefinition>
+											</Grid.RowDefinitions>
+											<BoxView Style="{StaticResource BoxViewStyle}" BackgroundColor="#63934E" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"></BoxView>
+											<BoxView Style="{StaticResource BoxViewStyle}" BackgroundColor="#B1B149" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></BoxView>
+											<BoxView Style="{StaticResource BoxViewStyle}" BackgroundColor="#E1BE18" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"></BoxView>
+											<BoxView Style="{StaticResource BoxViewStyle}" BackgroundColor="#EA862C" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"></BoxView>
+											<BoxView Style="{StaticResource BoxViewStyle}" BackgroundColor="#AA0000" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"></BoxView>
+										</Grid>
+									</StackLayout>
+									<StackLayout Orientation="Horizontal" Padding="0,20,0,0">
+										<controlsHelper:CustomFontButton
+											  BorderColorExtended="Black"
+											  BorderWidthExtended="0"
+											  CornerRadiusExtended="0"
+											  TextColorExtended="#444444"
+											  HorizontalContentAlignment="Start"
+											  BackgroundColorExtended="#cccccc"
+											  HorizontalOptions="FillAndExpand"
+											  VerticalOptions="Fill"  FontSize="16"
+											  Text="View Health Score Details"
+											  Clicked="ViewHealthScore_OnClicked">
+											<Button.HeightRequest>
+												<OnPlatform x:TypeArguments="x:Double"  iOS="40" Android="40"/>
+											</Button.HeightRequest>
+
+											<Button.WidthRequest>
+												<OnPlatform x:TypeArguments="x:Double"  iOS="210" Android="210"/>
+											</Button.WidthRequest>
+										</controlsHelper:CustomFontButton>
+									</StackLayout>
+								</StackLayout>
+							</StackLayout>
+						</controlsHelper:TextContainerFrame>
+					</StackLayout>
+					<!--MyHealthScore end region-->
+
+					<!--MyEvent start region-->
+					<StackLayout Orientation="Vertical" Padding="5,0,15,0"  HorizontalOptions="FillAndExpand" VerticalOptions="Fill" x:Name="MyEventsLayout">
+						<controlsHelper:TextContainerFrame BackgroundColorExtended="White" BorderColorExtended="#dddddd" BorderWidthExtended="1" CornerRadiusExtended="0" HasShadow="False">
+							<StackLayout Orientation="Vertical" Padding="0,10,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
+								<StackLayout Orientation="Vertical" Spacing="0" Padding="0,0,0,25">
+									<Label HorizontalOptions="Start" VerticalOptions="Center" TextColor="#666666"  Text="MY EVENTS">
+									</Label>
+								</StackLayout>
+								<Label x:Name="MyEventsOneRegistrationEventNameTextLabel" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#007dc3"  >
+									<Label.FontSize>
+										<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+									</Label.FontSize>
+								</Label>
+
+								<StackLayout Orientation="Horizontal">
+									<Label x:Name="MyEventsOneRegistrationStatusTextLabel" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#007dc3"  >
+										<Label.FontSize>
+											<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+										</Label.FontSize>
+									</Label>
+
+									<Label x:Name="MyEventsOneRegistrationDateTextLabel" HorizontalOptions="Start" VerticalOptions="Center" TextColor="Black"  >
+										<Label.FontSize>
+											<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+										</Label.FontSize>
+									</Label>
+
+								</StackLayout>
+								<StackLayout Orientation="Vertical" x:Name="MyEventsSecondLayout" IsVisible="True" Padding="0,25,0,0">
+									<Label x:Name="MyEventsTwoRegistrationEventNameTextLabel" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#007dc3" >
+										<Label.FontSize>
+											<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+										</Label.FontSize>
+									</Label>
+									<StackLayout Orientation="Horizontal">
+										<Label x:Name="MyEventsTwoRegistrationStatusTextLabel" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#aa0000" >
+											<Label.FontSize>
+												<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+											</Label.FontSize>
+										</Label>
+
+										<Label x:Name="MyEventsTwoRegistrationDateTextLabel" HorizontalOptions="Start" VerticalOptions="Center" TextColor="Black"  >
+											<Label.FontSize>
+												<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+											</Label.FontSize>
+										</Label>
+
+
+									</StackLayout>
+								</StackLayout>
+
+								<StackLayout Orientation="Vertical" Padding="0,35,0,15">
+									<controlsHelper:CustomFontButton
+										  BorderColorExtended="Black"
+										  BorderWidthExtended="0"
+										  CornerRadiusExtended="0"
+										  Text="Manage My Events"
+										  TextColorExtended="#444444"
+										  HorizontalContentAlignment="Start"
+										  BackgroundColorExtended="#cccccc"
+										  HorizontalOptions="FillAndExpand"
+										  VerticalOptions="Fill"  FontSize="16" Clicked="ManageMyEvents_OnClicked">
+										<Button.HeightRequest>
+											<OnPlatform x:TypeArguments="x:Double"  iOS="40" Android="40"/>
+										</Button.HeightRequest>
+
+										<Button.WidthRequest>
+											<OnPlatform x:TypeArguments="x:Double"  iOS="150" Android="150"/>
+										</Button.WidthRequest>
+									</controlsHelper:CustomFontButton>
+								</StackLayout>
+							</StackLayout>
+						</controlsHelper:TextContainerFrame>
+					</StackLayout>
+					<!--MyEvent end region-->
+					<!--MyResult start region-->
+					<StackLayout Orientation="Vertical" Padding="5,0,15,0"  HorizontalOptions="FillAndExpand" VerticalOptions="Fill" x:Name="MyResultsLayout" IsVisible="False">
+						<controlsHelper:TextContainerFrame BackgroundColorExtended="White" BorderColorExtended="#dddddd" BorderWidthExtended="1" CornerRadiusExtended="0" HasShadow="False">
+							<StackLayout Orientation="Vertical" Padding="0,10,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
+								<StackLayout Orientation="Vertical" Spacing="0" Padding="0,0,0,25">
+									<!-- Content -->
+									<StackLayout Orientation="Horizontal" Padding="0,0,0,20">
+										<Label   x:Name="MyResultsHeader" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#666666"  Text="MY RESULTS"/>
+									</StackLayout>
+									<Label x:Name="MyResultFirstMessageText" HorizontalOptions="Start"  VerticalOptions="Center" TextColor="#63934E">
+										<Label.FontSize>
+											<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+										</Label.FontSize>
+									</Label>
+									<StackLayout Padding="0,10,0,0">
+										<Label x:Name="MyResultSecondMessageText" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#666666">
+											<Label.FontSize>
+												<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+											</Label.FontSize>
+										</Label>
+									</StackLayout>
+								</StackLayout>
+							</StackLayout>
+						</controlsHelper:TextContainerFrame>
+					</StackLayout>
+					<!-- Dailly Tip-->
+					<StackLayout Orientation="Vertical" Padding="5,0,15,0"  HorizontalOptions="FillAndExpand" VerticalOptions="Fill" x:Name="DailyTipsContainLayout">
+						<controlsHelper:TextContainerFrame BackgroundColorExtended="#B1C9A7" BorderColorExtended="#dddddd" BorderWidthExtended="1" CornerRadiusExtended="0" HasShadow="False">
+							<StackLayout Orientation="Vertical" Padding="0,10,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
+								<StackLayout Orientation="Vertical" Spacing="0" Padding="0,0,0,25">
+									<Label   x:Name="MyDialyTipHeaderLabel" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#666666"  Text="DAILY TIP" IsVisible="False">
+									</Label>
+									<StackLayout x:Name="DailyTipsLayout" Orientation="Vertical" IsVisible="True" Padding="0,20,0,0">
+										<Label x:Name="DialyTipTitle" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#63934E" >
+											<Label.FontSize>
+												<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+											</Label.FontSize>
+										</Label>
+										<Label x:Name="DialyTipText" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#ffffff" >
+											<Label.FontSize>
+												<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14"/>
+											</Label.FontSize>
+										</Label>
+									</StackLayout>
+								</StackLayout>
+							</StackLayout>
+						</controlsHelper:TextContainerFrame>
+					</StackLayout>
+					<!-- Dailly Tip End-->
+					<!-- Welcome letter -->
+					<StackLayout Orientation="Vertical" Padding="5,0,15,0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="WelcomeLetterLayout">
+						<StackLayout Orientation="Vertical" Padding="1,1,1,1" BackgroundColor="#dddddd"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+							<StackLayout Orientation="Vertical" Padding="20,20,20,20"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+								<controlsHelper:CustomFontWebView x:Name="WelcomLetterWebView" FontSizeExtended="small" VerticalOptions="FillAndExpand" IsVisible="True" HeightRequest="400"  />
+							</StackLayout>
+						</StackLayout>
+					</StackLayout>
+
+				</StackLayout>
+				<Image x:Name="ShieldImage" BackgroundColor="White"
+					   RelativeLayout.WidthConstraint = 
+            "{ConstraintExpression Type=RelativeToParent, 
+                Property=Width}"
+					 RelativeLayout.HeightConstraint = 
+            "{ConstraintExpression Type=RelativeToParent, 
+                Property=Height}"
+ 
+						RelativeLayout.XConstraint=
+            "{ConstraintExpression Type=Constant, 
+                Constant=0}"
+ 
+						RelativeLayout.YConstraint=
+             "{ConstraintExpression Type=Constant, 
+                Constant=0}"/>
+				<!--</RelativeLayout>-->
+
+			</StackLayout>
+		</ScrollView>
+	</ContentView.Content>
+</ContentView>

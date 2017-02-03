@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controlsHelper="clr-namespace:oc.Source.Helpers.UIHelpers.ControlsHelper;assembly=oc"
+             x:Class="oc.Source.Pages.ViewHelpers.InformationView">
+	<ContentView.Resources>
+		<ResourceDictionary>
+			<Style x:Key="EntryStyle" TargetType="controlsHelper:CustomFontEntry">
+				<Setter Property="FontSize" Value="16"/>
+				<Setter Property="BorderWidthExtended" Value="1"/>
+				<Setter Property="TextColorExtended" Value="Black"/>
+				<Setter Property="BackgroundColorExtended" Value="White"/>
+				<Setter Property="PlaceHolderColorExtended" Value="#555555"/>
+				<Setter Property="CornerRadiusExtended" Value="0"/>
+				<Setter Property="BorderColorExtended" Value="#CCCCCC"/>
+				<Setter Property="HeightRequest" Value="45"/>
+			</Style>
+		</ResourceDictionary>
+	</ContentView.Resources>
+	<ContentView.Content>
+		<ScrollView>
+			<StackLayout x:Name="MainStackLayout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" Opacity="0">
+				<StackLayout Padding="0,1,0,0" BackgroundColor="#E5E5E5" VerticalOptions="FillAndExpand">
+					<StackLayout Padding="20,20,20,25" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="3">
+						<controlsHelper:CustomFontEntry
+								Style="{StaticResource EntryStyle}"
+								Placeholder="First Name"
+								Text="{Binding Model.FirstName, Mode=TwoWay}"/>
+						<controlsHelper:CustomFontEntry
+							Style="{StaticResource EntryStyle}"
+							Placeholder="Last Name"
+							Text="{Binding Model.LastName, Mode=TwoWay}"/>
+						<controlsHelper:CustomFontEntry
+								Style="{StaticResource EntryStyle}"
+								Text="{Binding Model.Date, Mode=TwoWay}"
+								Placeholder="MM/DD/YYYY"/>
+						<controlsHelper:CustomFontEntry
+								 Style="{StaticResource EntryStyle}"
+								 Text="{Binding Model.Email, Mode=TwoWay}"
+								 Placeholder="Email Address"/>
+						<controlsHelper:CustomFontEntry
+								Style="{StaticResource EntryStyle}"
+								Text="{Binding Model.Address, Mode=TwoWay}"
+								Placeholder="Mailing Address"/>
+						<controlsHelper:CustomFontEntry
+								  Style="{StaticResource EntryStyle}"
+								  Text="{Binding Model.City, Mode=TwoWay}"
+								  Placeholder="City"/>
+						<controlsHelper:ExtendedPicker CornerRadiusExtended="0" BorderColorExtended="#CCCCCC" BorderWidthExtended="1" HeightRequest="45" BackgroundColor="White" ItemsSource="{Binding StatesList}" SelectedItem="{Binding State, Mode=TwoWay}" TextColor="#555555" Title="Choose a State">
+						</controlsHelper:ExtendedPicker>
+						<controlsHelper:CustomFontEntry
+								Style="{StaticResource EntryStyle}"
+								Text="{Binding Model.Zip, Mode=TwoWay}"
+								Placeholder="Zip Code"/>
+						<controlsHelper:ExtendedPicker CornerRadiusExtended="0" BorderColorExtended="#CCCCCC" BorderWidthExtended="1" HeightRequest="45" ItemsSource="{Binding ProgramNameList}" SelectedItem="{Binding Program, Mode=TwoWay}"  TextColor="#555555" Title="Choose a Program">
+						</controlsHelper:ExtendedPicker>
+						<StackLayout VerticalOptions="Fill" HorizontalOptions="FillAndExpand" Padding="0,15,0,25">
+							<Grid BackgroundColor="White"  HorizontalOptions="FillAndExpand" VerticalOptions="Fill" Padding="8,0,0,0">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="66"/>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="Auto"/>
+								</Grid.ColumnDefinitions>
+								<StackLayout Grid.Row="0" Grid.Column="0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+									<Label VerticalOptions="FillAndExpand" TextColor="Black" VerticalTextAlignment="Center" Text="{Binding Text}" FontSize="16"/>
+								</StackLayout>
+								<StackLayout Padding="0,0,10,0" Grid.Row="0" Grid.Column="1">
+									<Switch HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" IsToggled="{Binding Status, Mode=TwoWay}">
+									</Switch>
+								</StackLayout>
+							</Grid>
+						</StackLayout>
+						<controlsHelper:CustomFontButton
+							BackgroundColor="#37A600"
+			                BorderColorExtended="#3EC951"
+							BorderWidthExtended="1"
+							CornerRadiusExtended="7"
+							FontSize="16"
+							Text ="Save"
+							HorizontalOptions="FillAndExpand"
+							HeightRequest="40"
+							Clicked="SaveInfoTapped">
+						</controlsHelper:CustomFontButton>
+					</StackLayout>
+				</StackLayout>
+			</StackLayout>
+		</ScrollView>
+	</ContentView.Content>
+</ContentView>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controlsHelper="clr-namespace:oc.Source.Helpers.UIHelpers.ControlsHelper;assembly=oc"
+             x:Class="oc.Source.Pages.ViewHelpers.TrackersOverview">
+			 <ContentView.Resources>
+   <ResourceDictionary>
+      <Style x:Key="LabelStyle" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="TextColor" Value="#ffffff"/>
+        <Setter Property="FontSize" Value="18" />
+		<Setter Property="VerticalOptions" Value="Center" />
+      </Style>
+    </ResourceDictionary>
+  </ContentView.Resources>
+	<ContentView.Content>
+	 <ScrollView>
+      <StackLayout x:Name="MainLayout" Orientation="Vertical">
+		<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#C8C7CC" Padding="0,10,0,10">
+		  <ContentView HorizontalOptions="Center">
+		      <Label FontSize="16" Text="Overview" TextColor="#506E97"/>
+		  </ContentView>
+		</StackLayout>
+		<StackLayout Padding="5,0,5,0">
+			<controlsHelper:GradientFrame FirstColorExtended="#005EA6" SecondColorExtended="#004F8C" CornerRadiusExtended="3" HasShadow="False" Padding="0,0,0,0">
+				<StackLayout Padding="20,20,15,20" Orientation="Horizontal">
+					<StackLayout.GestureRecognizers>
+						<TapGestureRecognizer Tapped="BiometrickOnTapped"/>
+					</StackLayout.GestureRecognizers>
+					<Label Text="Biometrics" Style="{StaticResource LabelStyle}"/>
+					<StackLayout x:Name="BiometricsImage" HorizontalOptions="EndAndExpand"></StackLayout>
+				</StackLayout>
+			</controlsHelper:GradientFrame>
+			<controlsHelper:GradientFrame FirstColorExtended="#65B300" SecondColorExtended="#579900" CornerRadiusExtended="3" HasShadow="False" Padding="0,0,0,0">
+				<StackLayout Padding="20,20,15,15" Orientation="Horizontal">
+					<StackLayout.GestureRecognizers>
+						<TapGestureRecognizer Tapped="DevicesOnTapped"/>
+					</StackLayout.GestureRecognizers>
+					<Label Text="Devices" Style="{StaticResource LabelStyle}"/>
+					<StackLayout x:Name="DevicesImage" HorizontalOptions="EndAndExpand"></StackLayout>
+				</StackLayout>
+			</controlsHelper:GradientFrame>
+			<controlsHelper:GradientFrame FirstColorExtended="#F37735" SecondColorExtended="#BF5300" CornerRadiusExtended="3" HasShadow="False" Padding="0,0,0,0">
+				<StackLayout Padding="20,20,15,20" Orientation="Horizontal">
+					<StackLayout.GestureRecognizers>
+						<TapGestureRecognizer Tapped="ProgramOnTapped"/>
+					</StackLayout.GestureRecognizers>
+					<Label Text="Program" Style="{StaticResource LabelStyle}"/>
+					<StackLayout x:Name="ProgramImage" HorizontalOptions="EndAndExpand"></StackLayout>
+				</StackLayout>
+			</controlsHelper:GradientFrame>
+		</StackLayout>
+      </StackLayout>
+    </ScrollView>
+	</ContentView.Content>
+</ContentView>

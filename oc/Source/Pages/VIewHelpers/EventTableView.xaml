@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+x:Class="oc.Source.Pages.ViewHelpers.EventTableView"
+xmlns:controlsHelper="clr-namespace:oc.Source.Helpers.UIHelpers.ControlsHelper;assembly=oc"
+BackgroundColor="#E6E7E8">
+	<ContentView.Content>
+		<ScrollView>
+			<StackLayout Spacing="0">
+				<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#C8C7CC" Padding="0,10,0,10">
+					<ContentView HorizontalOptions="Center">
+						<Label FontSize="16" Text="Events Management" TextColor="#506E97"/>
+					</ContentView>
+				</StackLayout>
+				<StackLayout x:Name="MainViewStack" Padding="5,10,0,10" Spacing="10">
+				</StackLayout>
+			</StackLayout>
+		</ScrollView>
+	</ContentView.Content>
+</ContentView>

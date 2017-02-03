@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="oc.Source.Pages.ViewHelpers.TrackersViews.ProgramTrackers">
+	<ContentView.Content>
+		<ScrollView>
+			<StackLayout Spacing="0">
+				<Grid BackgroundColor="#C8C7CC">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<ContentView
+					  Grid.Column="0"
+					  Grid.ColumnSpan="2"
+					  Padding="0,10,0,10"
+					  HorizontalOptions="CenterAndExpand"
+					  VerticalOptions="Center">
+						<Label
+						  Text="Program"
+						  TextColor="#506E97"
+						  FontSize="16"/>
+					</ContentView>
+					<StackLayout
+					  Grid.Column="0"
+					  Padding="20,0,20,0"
+					  VerticalOptions="Center"
+					  HorizontalOptions="Center">
+						<StackLayout.GestureRecognizers>
+							<TapGestureRecognizer Tapped="BackArrowToPrevPage"/>
+						</StackLayout.GestureRecognizers>
+						<Label x:Name="ArrowLabel"
+						  Text=">"
+						  TextColor="#506E97"
+						  FontSize="20"
+						  FontAttributes="Bold"/>
+					</StackLayout>
+				</Grid>
+			<StackLayout x:Name="TrackersLayoutCustom"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+		  </StackLayout>
+		</ScrollView>
+	</ContentView.Content>
+</ContentView>

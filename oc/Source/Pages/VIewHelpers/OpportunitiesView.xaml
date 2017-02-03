@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controlsHelper="clr-namespace:oc.Source.Helpers.UIHelpers.ControlsHelper;assembly=oc"
+             x:Class="oc.Source.Pages.ViewHelpers.OpportunitiesView">
+  <ContentView.Content>
+    <ScrollView VerticalOptions="FillAndExpand">
+      <StackLayout x:Name="MainStackLayout" Orientation="Vertical" BackgroundColor="#e6e7e8" Padding="0, 0, 0, 10" Spacing="0" VerticalOptions="FillAndExpand" Opacity="0">
+        <StackLayout x:Name="IncentiveLayout" VerticalOptions="Start" HorizontalOptions="FillAndExpand" IsVisible="False" BackgroundColor="#E6E7E8" Padding="0,10,0,10">
+          <ContentView HorizontalOptions="Center">
+            <Label FontSize="16" Text="Health Incentives" TextColor="#506E97"/>
+          </ContentView>
+        </StackLayout>
+		<StackLayout x:Name="AchievedeLayout" BackgroundColor="White" Orientation="Horizontal" Padding="0,14,0,14" HorizontalOptions="FillAndExpand" IsVisible="False">
+          <Label x:Name="AchievedLabel" Margin="10,0,0,0" Text="Health Incentives Achieved" FontSize="16" TextColor="#506E97" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+          <StackLayout x:Name="AchievedeLayoutSubStack" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Padding="0,0,10,0" IsVisible="False">
+			  <Label x:Name="PercentAwardedLabel" FontSize="30" TextColor="#EA862B"/>
+		  </StackLayout>
+        </StackLayout>
+        <StackLayout x:Name="IncentiveTableLayout" Padding="0,1,0,1" BackgroundColor="#cfced2" HorizontalOptions="Start" VerticalOptions="Start" IsVisible="False">
+		</StackLayout>
+		<ContentView x:Name="ContentIncentiveWeb" Padding="0,0,0,0"  IsVisible="False">
+			<controlsHelper:CustomFontWebView x:Name="IncentiveIntroView"  HeightRequest="10" FontSizeExtended="small" VerticalOptions="Fill"/>
+		</ContentView>
+       <StackLayout x:Name="AwardedLayout" BackgroundColor="White" Orientation="Horizontal" Padding="0,14,0,14" HorizontalOptions="FillAndExpand" IsVisible="False">
+          <Label Margin="10,0,0,0" Text="Rewards Points Awarded" FontSize="16" TextColor="#506E97" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+          <Label x:Name="CurrencyAwardedLabel" Margin="0,0,10,0" FontSize="30" TextColor="#EA862B" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+         </StackLayout>
+       <StackLayout x:Name="RewardTableLayout" Padding="0,1,0,1" BackgroundColor="#cfced2" HorizontalOptions="FillAndExpand" VerticalOptions="Start" IsVisible="False">
+        </StackLayout>
+		  <ContentView>
+			  <controlsHelper:CustomFontWebView x:Name="RewardIntroView" HeightRequest="10" FontSizeExtended="small" VerticalOptions="FillAndExpand" IsVisible="False"/>
+		  </ContentView>
+        <ContentView>
+			<controlsHelper:CustomFontWebView x:Name="AdditionalInfoView" HeightRequest="10" FontSizeExtended="small" VerticalOptions="FillAndExpand" IsVisible="False"/>
+		</ContentView>
+       </StackLayout>
+    </ScrollView>
+    </ContentView.Content>
+</ContentView>

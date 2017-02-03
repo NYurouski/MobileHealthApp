@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controlsHelper="clr-namespace:oc.Source.Helpers.UIHelpers.ControlsHelper;assembly=oc"
+             x:Class="oc.Source.Pages.ViewHelpers.OpportunityDetailView">
+  <ContentView.Content>
+    <ScrollView>
+      <StackLayout x:Name="MainStacklayout" Opacity="0" Orientation="Vertical">
+        <StackLayout Spacing="0">
+          <Grid BackgroundColor="#C8C7CC">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto"/>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ContentView
+              Grid.Column="0"
+              Grid.ColumnSpan="2"
+              Padding="0,10,0,10"
+              HorizontalOptions="CenterAndExpand"
+              VerticalOptions="Center">
+              <Label
+                Text="Goals"
+                TextColor="#506E97"
+                FontSize="16"/>
+            </ContentView>
+            <StackLayout
+              Grid.Column="0"
+              Padding="20,0,20,0"
+              VerticalOptions="Center"
+              HorizontalOptions="Center">
+              <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="BackArrowToPrevPage"/>
+              </StackLayout.GestureRecognizers>
+              <Label x:Name="ArrowLabel"
+                Text=">"
+                TextColor="#506E97"
+                FontSize="20"
+                FontAttributes="Bold"/>
+            </StackLayout>
+          </Grid>
+          <StackLayout BackgroundColor="#cfced2" Padding="0,1,0,0">
+            <StackLayout BackgroundColor="White" Padding="10,20,0,20" HorizontalOptions="FillAndExpand">
+              <Label x:Name="TitleTable" FontSize="16" TextColor="#506E97"/>
+            </StackLayout>
+          </StackLayout>
+          <StackLayout Padding="0,1,0,1" BackgroundColor="#cfced2">
+            <StackLayout Padding="0,0,0,0" BackgroundColor="White" IsVisible="True"  x:Name="IncentiveTableLayout" Orientation="Vertical" >
+            </StackLayout>
+          </StackLayout>
+        </StackLayout>
+        </StackLayout>
+     </ScrollView>
+  </ContentView.Content>
+</ContentView>
