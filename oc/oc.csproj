@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3FDC2340-D291-4CF2-BC3D-AE210A223957}</ProjectGuid>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <UseMSBuildEngine>true</UseMSBuildEngine>
+    <OutputType>Library</OutputType>
+    <RootNamespace>oc</RootNamespace>
+    <AssemblyName>oc</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App.xaml" />
+    <EmbeddedResource Include="Source\Pages\ForgotPasswordPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Pages\LoginInPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Pages\RegistrationPages\RegistrationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Source\Helpers\AppSettingHelper.cs" />
+    <Compile Include="Source\Helpers\DynamicTableGrid.cs" />
+    <Compile Include="Source\Constants\EnvironmentConstants.cs" />
+    <Compile Include="Source\Helpers\Enums\TrackerEnum.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\CustomFontButton.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\CustomFontEntry.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\CustomFontWebView.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\CustomWebView.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\ExtendedDatePicker.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\ExtendedPicker.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\GradientFrame.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\OppsNativeListView.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\NativeListView.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\RegistrationEventLabel.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\OppStackLayout.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\ScreeningSubperiodIdButton.cs" />
+    <Compile Include="Source\Models\AppointmentMobileRequestModel.cs" />
+    <Compile Include="Source\Models\AppointmentMobileResponseModel.cs" />
+    <Compile Include="Source\Models\Common\Error.cs" />
+    <Compile Include="Source\Models\Common\Data.cs" />
+    <Compile Include="Source\Models\DataModel\AlertModel.cs" />
+    <Compile Include="Source\Models\DataModel\MyHealthScore.cs" />
+    <Compile Include="Source\Models\DataModel\MyHealthRisks.cs" />
+    <Compile Include="Source\Models\DataModel\MyResultsMessage.cs" />
+    <Compile Include="Source\Models\DataModel\MenuChoices.cs" />
+    <Compile Include="Source\Models\DataModel\MyDailyTips.cs" />
+    <Compile Include="Source\Models\DataModel\MyEvent.cs" />
+    <Compile Include="Source\Models\DataModel\MyStatus.cs" />
+    <Compile Include="Source\Models\DataModel\NavigationLink.cs" />
+    <Compile Include="Source\Models\DataModel\ParticipantPwChangeRequest.cs" />
+    <Compile Include="Source\Models\DataModel\PhrResponseModel.cs" />
+    <Compile Include="Source\Models\DataModel\PhrSectionResponseModel.cs" />
+    <Compile Include="Source\Models\DataModel\ProgramResponse.cs" />
+    <Compile Include="Source\Models\DataModel\SettingsDataRequestModel.cs" />
+    <Compile Include="Source\Models\DataModel\TrackersResponseModel.cs" />
+    <Compile Include="Source\Models\DeleteTrackerRequestModel.cs" />
+    <Compile Include="Source\Models\Event.cs" />
+    <Compile Include="Source\Models\ParticipantProgramRequestModel.cs" />
+    <Compile Include="Source\Models\PhrRequestModel.cs" />
+    <Compile Include="Source\Models\PickersSettingsHelper.cs" />
+    <Compile Include="Source\Models\SaveTrackersRequestModel.cs" />
+    <Compile Include="Source\Models\ScoreDetailsResponseModel.cs" />
+    <Compile Include="Source\Models\SwitchSettingsHelper.cs" />
+    <Compile Include="Source\Models\ViewModel\MainViewModel.cs" />
+    <Compile Include="Source\Models\WelcomeLetterResponseModel.cs" />
+    <Compile Include="Source\Models\SheduleRequestModel.cs" />
+    <Compile Include="Source\Models\MySheduleModel.cs" />
+    <Compile Include="Source\Models\OpportunitiesModel.cs" />
+    <Compile Include="Source\Models\MyEventsResponseModel.cs" />
+    <Compile Include="Source\Models\MyEventModel.cs" />
+    <Compile Include="Source\Models\OpportunityResponseModel.cs" />
+    <Compile Include="Source\Models\SheduleResponseModel.cs" />
+    <Compile Include="Source\Pages\ViewHelpers\TrackersViews\BiometricsView.xaml.cs">
+      <DependentUpon>BiometricsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\ChangePasswordView.xaml.cs">
+      <DependentUpon>ChangePasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\EventTableView.xaml.cs">
+      <DependentUpon>EventTableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\EventView.xaml.cs">
+      <DependentUpon>EventView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\HelpView.xaml.cs">
+      <DependentUpon>HelpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Constants\ApiConstants.cs" />
+    <Compile Include="Source\ApplicationSettings\Impl\AppSettingsSingleton.cs" />
+    <Compile Include="Source\ApplicationSettings\SettingsConstants\AppSettingsConstant.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\ExtendedSwitch.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\ForgotMyPasswordLabel.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\ResetPasswordFrame.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\TextContainerFrame.cs" />
+    <Compile Include="Source\Helpers\UIHelpers\ControlsHelper\HealthWebView.cs" />
+    <Compile Include="Source\Helpers\WebRequestExtensions.cs" />
+    <Compile Include="Source\Models\DataRequestModel.cs" />
+    <Compile Include="Source\Models\DataResponseModel.cs" />
+    <Compile Include="Source\Models\ForgotPasswordRequestModel.cs" />
+    <Compile Include="Source\Models\ForgotPasswortResponseModel.cs" />
+    <Compile Include="Source\Models\HomeDataResponseModel.cs" />
+    <Compile Include="Source\Models\RegistrationRequestModel.cs" />
+    <Compile Include="Source\Models\HomeDataRequestModel.cs" />
+    <Compile Include="Source\Models\SignInRequestModel.cs" />
+    <Compile Include="Source\Models\LogInResponseModel.cs" />
+    <Compile Include="Source\Models\SignUpRequestModel.cs" />
+    <Compile Include="Source\Models\SignUpResponseModel.cs" />
+    <Compile Include="Source\Pages\RegistrationPages\RegistrationPageFourStep.xaml.cs">
+      <DependentUpon>RegistrationPageFourStep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\RegistrationPages\RegistrationPageThirdStep.xaml.cs">
+      <DependentUpon>RegistrationPageThirdStep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\RegistrationPages\RegistrationPageSecondStep.xaml.cs">
+      <DependentUpon>RegistrationPageSecondStep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\RegistrationPages\RegistrationPageFirstStep.xaml.cs">
+      <DependentUpon>RegistrationPageFirstStep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\InformationView.xaml.cs">
+      <DependentUpon>InformationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\OpportunitiesView.xaml.cs">
+      <DependentUpon>OpportunitiesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\OpportunityDetailView.xaml.cs">
+      <DependentUpon>OpportunityDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\PhrDetailView.xaml.cs">
+      <DependentUpon>PhrDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\PhrView.xaml.cs">
+      <DependentUpon>PhrView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\ScoreView.xaml.cs">
+      <DependentUpon>ScoreView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\SettingView.xaml.cs">
+      <DependentUpon>SettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\SubEventsView.xaml.cs">
+      <DependentUpon>SubEventsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\TrackersViews\SubTrackersView.xaml.cs">
+      <DependentUpon>SubTrackersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\TrackersViews\TrackersOverview.xaml.cs">
+      <DependentUpon>TrackersOverview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\TrackersViews\DevicesTracker.xaml.cs">
+      <DependentUpon>DevicesTracker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\TrackersViews\ProgramTrackers.xaml.cs">
+      <DependentUpon>ProgramTrackers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\ViewHelpers\WelcomeLetterView.xaml.cs">
+      <DependentUpon>WelcomeLetterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Services\ApiService.cs" />
+    <Compile Include="Source\Services\WebUtil.cs" />
+    <Compile Include="Source\Utils\ConfirmPasswordBehavior.cs" />
+    <Compile Include="Source\Utils\TextUtils.cs" />
+    <Compile Include="Source\Utils\Utils.cs" />
+    <Compile Include="Source\Pages\ForgotPasswordPage.xaml.cs">
+      <DependentUpon>ForgotPasswordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\LoginInPage.xaml.cs">
+      <DependentUpon>LoginInPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Pages\RegistrationPages\RegistrationPage.xaml.cs">
+      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Constants\ReadingCategoryTypeName.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Acr.DeviceInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acr.DeviceInfo.4.0.2\lib\portable-win+net45+wp8+win8+wpa81\Acr.DeviceInfo.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Acr.DeviceInfo.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acr.DeviceInfo.4.0.2\lib\portable-win+net45+wp8+win8+wpa81\Acr.DeviceInfo.Interface.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Acr.UserDialogs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acr.UserDialogs.6.0.1\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Acr.UserDialogs.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acr.UserDialogs.6.0.1\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.Interface.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Settings, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Settings.2.1.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Settings.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Settings.2.1.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Settings.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SVG.Forms.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Forms.Svg.1.0.0.27\lib\portable-net45+wp8+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SVG.Forms.Plugin.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Core.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Linq.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.3.0.107\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.3.0.107\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Splat">
+      <HintPath>..\packages\Splat.1.6.2\lib\Portable-net45+win+wpa81+wp80\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ModernHttpClient">
+      <HintPath>..\packages\modernhttpclient.2.4.2\lib\Portable-Net45+WinRT45+WP8+WPA81\ModernHttpClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.3.0.107\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\RegistrationPages\RegistrationPageFirstStep.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>
+      </SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\RegistrationPages\RegistrationPageSecondStep.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>
+      </SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\RegistrationPages\RegistrationPageThirdStep.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>
+      </SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\RegistrationPages\RegistrationPageFourStep.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>
+      </SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Source\Helpers\UIHelpers\PageHelper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="femaleicon.png" />
+    <EmbeddedResource Include="maleicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="snipimage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="greenthumbsup.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="redthumbsdown.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="loginbackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\HomeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\OpportunitiesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\EventView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\PhrView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\ScoreView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\OpportunityDetailView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\SettingView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\WelcomeLetterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\HelpView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\InformationView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\ChangePasswordView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Images\phractive.svg" />
+    <EmbeddedResource Include="Source\Images\scoreactive.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Images\dashboardactive.svg" />
+    <EmbeddedResource Include="Source\Images\eventsactive.svg" />
+    <EmbeddedResource Include="Source\Images\opportunitiesactive.svg" />
+    <EmbeddedResource Include="Source\Images\trackeractive.svg" />
+    <EmbeddedResource Include="Source\Images\useractive.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\SubEventsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\PhrDetailView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Images\events.svg" />
+    <EmbeddedResource Include="Source\Images\opportunities.svg" />
+    <EmbeddedResource Include="Source\Images\phr.svg" />
+    <EmbeddedResource Include="Source\Images\tracker.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Images\user.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Images\dashboard.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Images\score.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\EventTableView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Images\register.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\TrackersViews\TrackersOverview.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\TrackersViews\BiometricsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\TrackersViews\DevicesTracker.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\TrackersViews\ProgramTrackers.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Pages\ViewHelpers\TrackersViews\SubTrackersView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Images\devices.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Images\biometrics.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Images\program.svg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.Forms.2.0.1.6495\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.0.1.6495\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.2.3.0.107\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.2.3.0.107\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
+  </Target>
+  <Import Project="..\packages\Xamarin.Forms.2.3.0.107\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.0.107\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+</Project>
